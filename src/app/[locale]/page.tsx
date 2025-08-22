@@ -33,7 +33,7 @@ export default function Page() {
       <WhatsAppFab />
       <MobileBottomCTA />
       <ConsentBanner />
-      <ExitIntentModal />
+      {/* <ExitIntentModal /> */}
     </div>
   );
 }
