@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function ConsentBanner() {
@@ -15,9 +16,9 @@ export default function ConsentBanner() {
     <div id="consent-banner" className="fixed bottom-0 left-0 right-0 z-50 bg-[var(--slate-900)] p-4 text-center text-white">
       <p className="text-sm">
         We use cookies to improve your experience. By using our site, you agree to our{" "}
-        <a href="/privacy-policy" className="underline">
+        <Link href="/privacy-policy" className="underline">
           Privacy Policy
-        </a>.
+        </Link>.
         <button
           onClick={() => {
             localStorage.setItem("consent-ok", "1");

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const items = [
   {
     title: "Tech Startup",
@@ -42,7 +44,7 @@ export default function Portfolio() {
         <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {items.map((p) => (
             <div key={p.title} className="group relative overflow-hidden rounded-lg shadow-lg">
-              <img src={p.img} alt={p.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <Image src={p.img} alt={p.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
               <div className="absolute inset-0 flex flex-col items-start justify-end bg-black/60 p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <h3 className="text-xl font-bold text-white">{p.title}</h3>
                 <p className="mt-2 text-sm text-gray-300">{p.desc}</p>

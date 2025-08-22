@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Powerhouse() {
   const bullets = [
     ["Lead Generation Machine:", "Capture high-quality leads directly through optimized forms and clear calls-to-action."],
@@ -33,7 +35,7 @@ export default function Powerhouse() {
         </div>
 
         <div className="mt-10 lg:mt-0">
-          <img
+          <Image
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3u8W4c-9f8o-B4e2k-R9p-L6q-A7s8t-U5v-W3x-Y2z-1a-B-C-D-E-F-G-H-I-J-K-L-M-N-O-P"
             alt="Marketing Powerhouse"
             className="mx-auto rounded-lg shadow-lg"

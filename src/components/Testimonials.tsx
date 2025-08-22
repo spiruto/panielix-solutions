@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const items = [
   {
     name: "Sophia Carter, CEO of Innovatech",
@@ -33,7 +35,7 @@ export default function Testimonials() {
         {items.map((t) => (
           <div key={t.name} className="rounded-lg bg-[var(--slate-900)] p-6 shadow-lg">
             <div className="flex items-center gap-4">
-              <img src={t.img} alt={t.name} className="h-12 w-12 rounded-full" />
+              <Image src={t.img} alt={t.name} className="h-12 w-12 rounded-full" />
               <div>
                 <p className="font-semibold">{t.name}</p>
                 <div className="flex items-center text-sm text-[var(--slate-400)]">
