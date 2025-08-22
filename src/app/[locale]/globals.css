@@ -1,0 +1,27 @@
+@import "tailwindcss";/* Theme tokens */
+
+:root{
+  --primary-50:#eff8ff;
+  --primary-100:#dff0ff;
+  --primary-200:#b9e3ff;
+  --primary-300:#7cc9ff;
+  --primary-400:#46aaff;
+  --primary-500:#1b88f8;
+  --primary-600:#0d7ff2;
+  --primary-700:#0260c7;
+  --primary-800:#0452a5;
+  --primary-900:#0a4484;
+  --primary-950:#06284f;
+  --slate-950:#101a23;
+  --slate-900:#182634;
+  --slate-800:#223649;
+  --slate-700:#314d68;
+  --slate-400:#90adcb;
+}
+
+html,body { height: 100%; }
+body { background: var(--slate-950); color: white; }
+
+.hero-gradient-overlay{
+  background-image: linear-gradient(rgba(0,0,0,.2) 0%, rgba(0,0,0,.6) 100%);
+}
