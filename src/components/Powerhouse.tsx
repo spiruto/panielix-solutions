@@ -39,6 +39,7 @@ export default function Powerhouse() {
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3u8W4c-9f8o-B4e2k-R9p-L6q-A7s8t-U5v-W3x-Y2z-1a-B-C-D-E-F-G-H-I-J-K-L-M-N-O-P"
             alt="Marketing Powerhouse"
             className="mx-auto rounded-lg shadow-lg"
+            
           />
         </div>
       </div>

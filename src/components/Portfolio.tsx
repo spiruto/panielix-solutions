@@ -41,7 +41,7 @@ export default function Portfolio() {
           </p>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {/* <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {items.map((p) => (
             <div key={p.title} className="group relative overflow-hidden rounded-lg shadow-lg">
               <Image src={p.img} alt={p.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
@@ -59,7 +59,7 @@ export default function Portfolio() {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );
