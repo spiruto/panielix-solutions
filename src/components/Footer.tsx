@@ -17,7 +17,7 @@ export default function Footer() {
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-[var(--slate-400)]">
             <a className="hover:text-white" href="#benefits">Benefits</a>
             <a className="hover:text-white" href="#packages">Packages</a>
-            <a className="hover:text-white" href="#portfolio">Portfolio</a>
+            {/* <a className="hover:text-white" href="#portfolio">Portfolio</a> */}
             <a className="hover:text-white" href="#process">Process</a>
             <a className="hover:text-white" href="#faq">FAQ</a>
             <a className="hover:text-white" href="#contact">Contact</a>

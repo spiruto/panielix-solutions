@@ -25,7 +25,7 @@ export default function Header() {
           ["Home", "#home"],
           ["Benefits", "#benefits"],
           ["Packages", "#packages"],
-          ["Portfolio", "#portfolio"],
+          // ["Portfolio", "#portfolio"],
           ["Process", "#process"],
           ["FAQ", "#faq"],
         ].map(([label, href]) => (
@@ -55,7 +55,7 @@ export default function Header() {
               ["Home", "#home"],
               ["Benefits", "#benefits"],
               ["Packages", "#packages"],
-              ["Portfolio", "#portfolio"],
+              // ["Portfolio", "#portfolio"],
               ["Process", "#process"],
               ["FAQ", "#faq"],
               ["Contact", "#contact"],

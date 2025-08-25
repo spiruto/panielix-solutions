@@ -40,13 +40,13 @@ export async function generateMetadata({
       url: base.toString(),
       title,
       description,
-      images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+      images: [{ url: `/opengraph-image`, width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: ["/twitter-image.jpg"],
+      images: [`/opengraph-image`],
     },
     icons: { icon: [{ url: "/favicon.ico" }] },
     robots: { index: true, follow: true },
@@ -74,7 +74,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-        <link rel="preload" as="image" href="/marketing-powerhouse.jpg" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className={`${inter.variable} ${noto.variable} font-sans bg-[var(--slate-950)] text-white`}>
         <noscript>
