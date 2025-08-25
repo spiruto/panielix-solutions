@@ -8,6 +8,7 @@ import { routing } from "@/i18n/routing";
 import { hasLocale } from "next-intl";
 import { websiteLd, orgLd } from "@/lib/schema";
 import { serviceLd } from "@/lib/seo-ld";
+import MetaPixel from "@/components/MetaPixel";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const noto = Noto_Sans({ subsets: ["latin"], variable: "--font-noto", display: "swap" });
@@ -85,7 +86,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-
+        <MetaPixel />
         {children}
 
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-2DSBBD62HF" async />
