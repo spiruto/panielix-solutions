@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Script from "next/script";
 
 const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID!;
@@ -26,7 +27,7 @@ fbq('track', 'PageView');
 
       {/* NoScript fallback */}
       <noscript>
-        <img
+        <Image
           height="1"
           width="1"
           style={{ display: "none" }}
