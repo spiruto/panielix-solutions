@@ -1,209 +1,184 @@
-import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
+import { z } from "zod";
 
-// IMPORTANT: SMTP requires the Node.js runtime, not Edge
-export const runtime = "nodejs";
+// Same schema as your form
+const ContactSchema = z.object({
+  fullName: z.string().min(2),
+  email: z.string().email(),
+  website: z.string().url().optional(),
+  inquiry: z.string().min(20),
+});
 
+// ---------- Transport (Gmail App Password) ----------
+function getTransport() {
+  const user = process.env.EMAIL;
+  const pass = process.env.EMAIL_PASSWORD;
+
+  if (!user || !pass) {
+    throw new Error("Email credentials are missing in env.");
+  }
+
+  return nodemailer.createTransport({
+    service: "gmail",
+    auth: { user, pass },
+  });
+}
+
+// ---------- Shared styling ----------
+const brand = {
+  bg: "#101a23",
+  panel: "#182634",
+  text: "#90adcb",
+  heading: "#ffffff",
+  primary: "#1b88f8",
+  border: "#314d68",
+};
+
+function wrapHTML(content: string) {
+  return `<!doctype html>
+<html>
+  <head>
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Panielix Solutions</title>
+  </head>
+  <body style="margin:0;background:${brand.bg};font-family:Inter,Arial,sans-serif;color:${brand.text};">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${brand.bg};padding:32px 0;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;background:${brand.panel};border:1px solid ${brand.border};border-radius:12px;overflow:hidden;">
+            <tr>
+              <td style="padding:28px;">
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div style="width:32px;height:32px;color:${brand.primary}">▲</div>
+                  <h1 style="margin:0;font-size:18px;color:${brand.heading};font-weight:800;">Panielix Solutions</h1>
+                </div>
+                ${content}
+                <div style="margin-top:28px;padding-top:18px;border-top:1px solid ${brand.border};font-size:12px;opacity:.85">
+                  © ${new Date().getFullYear()} Panielix Solutions — All rights reserved.
+                </div>
+              </td>
+            </tr>
+          </table>
+          <div style="margin-top:10px;font-size:12px;color:${brand.text};opacity:.7">This is an automated message.</div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+}
+
+// ---------- Templates ----------
+function ownerEmailHTML(data: z.infer<typeof ContactSchema>) {
+  return wrapHTML(`
+    <h2 style="margin:18px 0 6px;color:${brand.heading};font-size:22px;font-weight:800;">New Inquiry Received</h2>
+    <p style="margin:0 0 14px;">A new lead submitted the contact form:</p>
+
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:separate;border-spacing:0 8px;">
+      <tr>
+        <td style="width:160px;color:${brand.text};opacity:.85;">Name</td>
+        <td style="color:${brand.heading};font-weight:600;">${data.fullName}</td>
+      </tr>
+      <tr>
+        <td style="color:${brand.text};opacity:.85;">Email</td>
+        <td style="color:${brand.heading};font-weight:600;">${data.email}</td>
+      </tr>
+      ${data.website
+      ? `<tr>
+              <td style="color:${brand.text};opacity:.85;">Website</td>
+              <td style="color:${brand.heading};font-weight:600;">
+                <a href="${data.website}" style="color:${brand.primary};text-decoration:none;">${data.website}</a>
+              </td>
+            </tr>`
+      : ""
+    }
+    </table>
+
+    <div style="margin-top:16px;padding:14px;border:1px solid ${brand.border};border-radius:10px;background:#0f1722;">
+      <div style="color:${brand.text};opacity:.85;margin-bottom:6px;">Inquiry</div>
+      <div style="white-space:pre-wrap;color:${brand.heading};line-height:1.6;">${data.inquiry}</div>
+    </div>
+
+    <a href="mailto:${data.email}" style="display:inline-block;margin-top:18px;background:${brand.primary};color:#fff;padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none;">
+      Reply to ${data.fullName}
+    </a>
+  `);
+}
+
+function customerEmailHTML(fullName: string) {
+  return wrapHTML(`
+    <h2 style="margin:18px 0 6px;color:${brand.heading};font-size:22px;font-weight:800;">
+      Thank you, ${fullName}!
+    </h2>
+    <p style="margin:0 0 10px;">
+      We’ve received your message and our team is reviewing it now.
+    </p>
+    <p style="margin:0 0 14px;">
+      We’ll reach out shortly, or propose a convenient time to talk through your goals and next steps.
+    </p>
+
+    <a href="https://www.panielix.com#packages"
+       style="display:inline-block;margin-top:14px;background:${brand.primary};color:#fff;padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none;">
+      Explore Solutions
+    </a>
+
+    <div style="margin-top:16px;padding:12px;border:1px solid ${brand.border};border-radius:10px;background:#0f1722;">
+      <div style="font-weight:700;color:${brand.heading};margin-bottom:6px;">What happens next?</div>
+      <ol style="margin:0;padding-left:18px;line-height:1.6;">
+        <li>We review your inquiry.</li>
+        <li>We follow up with clarifying questions or a proposed meeting time.</li>
+        <li>We share a tailored plan to reach your objectives.</li>
+      </ol>
+    </div>
+
+    <p style="margin-top:16px;">If you need anything meanwhile, just reply to this email.</p>
+  `);
+}
+
+// ---------- Senders ----------
+async function sendOwnerEmail(data: z.infer<typeof ContactSchema>) {
+  const transporter = getTransport();
+  const from = process.env.EMAIL!;
+  await transporter.sendMail({
+    from: `"Panielix Solutions" <${from}>`,
+    to: from, // send to yourself
+    subject: `New Inquiry — ${data.fullName}`,
+    replyTo: data.email,
+    html: ownerEmailHTML(data),
+  });
+}
+
+async function sendCustomerConfirmation(fullName: string, toEmail: string) {
+  const transporter = getTransport();
+  const from = process.env.EMAIL!;
+  await transporter.sendMail({
+    from: `"Panielix Solutions" <${from}>`,
+    to: toEmail,
+    subject: "We received your inquiry — Panielix Solutions",
+    html: customerEmailHTML(fullName),
+  });
+}
+
+// ---------- Route ----------
 export async function POST(req: Request) {
   try {
-    const allowedDomain = "https://www.panielix.com";
-    const allowedDomain2 = "https://panielix.com";
-    const origin = req.headers.get("origin") || "";
-    const referer = req.headers.get("referer") || "";
-    if (!origin.startsWith(allowedDomain) || !origin.startsWith(allowedDomain2) && !referer.startsWith(allowedDomain) || !referer.startsWith(allowedDomain2)) {
-      return new Response("Forbidden", { status: 403 });
+    const body = await req.json();
+    const parsed = ContactSchema.safeParse(body);
+    if (!parsed.success) {
+      return NextResponse.json({ error: "Invalid input" }, { status: 400 });
     }
-    const { fullName, email, website, inquiry } = await req.json();
-    if (!fullName ||
-      !email ||
-      !inquiry) {
-      throw new Error("Data Incomplete")
-    }
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,         // or 587 with secure: false
-      secure: true,      // true for 465, false for 587
-      auth: {
-        user: process.env.NEXT_PUBLIC_EMAIL,
-        pass: process.env.NEXT_PUBLIC_EMAIL_PASSWORD,
-      },
-    });
+    const data = parsed.data;
 
-    const info = await transporter.sendMail({
-      from: `"My App" <${process.env.NEXT_PUBLIC_EMAIL}>`,
-      to: process.env.NEXT_PUBLIC_EMAIL,                 // send to yourself
-      subject: "You have received a new Contact Mail",
-      text: inquiry,
-      html: `<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>New Lead — Panielix Solutions</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <!-- Preheader (hidden in most clients) -->
-  <style>
-    @media (max-width:600px){
-      .container{width:100% !important}
-      .px{padding-left:20px !important;padding-right:20px !important}
-      .h1{font-size:24px !important;line-height:32px !important}
-    }
-  </style>
-</head>
-<body style="margin:0;padding:0;background:#101a23;">
-  <!-- Preheader text -->
-  <div style="display:none;visibility:hidden;opacity:0;overflow:hidden;height:0;width:0;color:transparent;">
-    New website inquiry from ${fullName} — Panielix Solutions
-  </div>
+    // Send to you first (fail fast if SMTP is broken)
+    await sendOwnerEmail(data);
 
-  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#101a23;">
-    <tr>
-      <td align="center" style="padding:24px;">
-        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" class="container" style="width:600px;max-width:600px;background:#182634;border:1px solid #223649;border-radius:14px;overflow:hidden;">
-          <!-- Accent bar -->
-          <tr>
-            <td style="height:6px;background:#1b88f8;line-height:6px;font-size:0;">&nbsp;</td>
-          </tr>
-
-          <!-- Header -->
-          <tr>
-            <td class="px" style="padding:28px 28px 0 28px;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td align="left">
-                    <div style="font-family:Inter, Noto Sans, Arial, Helvetica, sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#90adcb;">
-                      Panielix Solutions
-                    </div>
-                    <div class="h1" style="font-family:Inter, Noto Sans, Arial, Helvetica, sans-serif;font-weight:800;font-size:28px;line-height:36px;color:#ffffff;margin-top:6px;">
-                      New Contact Inquiry
-                    </div>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <!-- Intro -->
-          <tr>
-            <td class="px" style="padding:14px 28px 0 28px;">
-              <p style="margin:0;font-family:Inter, Noto Sans, Arial, Helvetica, sans-serif;font-size:16px;line-height:24px;color:#dbe7f4;">
-                You’ve received a new lead from your website contact form. Here are the details:
-              </p>
-            </td>
-          </tr>
-
-          <!-- Lead card -->
-          <tr>
-            <td class="px" style="padding:20px 28px 0 28px;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#223649;border:1px solid #314d68;border-radius:12px;">
-                <tr>
-                  <td style="padding:18px 20px;">
-                    <!-- Name -->
-                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                      <tr>
-                        <td style="width:120px;vertical-align:top;padding:6px 0;">
-                          <div style="font-family:Inter, Noto Sans, Arial, Helvetica, sans-serif;font-size:13px;line-height:18px;color:#90adcb;">Full Name</div>
-                        </td>
-                        <td style="vertical-align:top;padding:6px 0;">
-                          <div style="font-family:Inter, Noto Sans, Arial, Helvetica, sans-serif;font-size:15px;line-height:22px;color:#ffffff;font-weight:600;">
-                            ${fullName}
-                          </div>
-                        </td>
-                      </tr>
-
-                      <!-- Email -->
-                      <tr>
-                        <td style="width:120px;vertical-align:top;padding:6px 0;">
-                          <div style="font-family:Inter, Noto Sans, Arial, Helvetica, sans-serif;font-size:13px;line-height:18px;color:#90adcb;">Email</div>
-                        </td>
-                        <td style="vertical-align:top;padding:6px 0;">
-                          <div style="font-family:Inter, Noto Sans, Arial, Helvetica, sans-serif;font-size:15px;line-height:22px;">
-                            <a href="mailto:${email}" style="color:#46aaff;text-decoration:none;">${email}</a>
-                          </div>
-                        </td>
-                      </tr>
-
-                      <!-- Website (optional) -->
-                      <!-- Remove this row entirely if website is not provided -->
-                      ${website ? `
-                      <tr>
-                        <td style="width:120px;vertical-align:top;padding:6px 0;">
-                          <div style="font-family:Inter, Noto Sans, Arial, Helvetica, sans-serif;font-size:13px;line-height:18px;color:#90adcb;">Website</div>
-                        </td>
-                        <td style="vertical-align:top;padding:6px 0;">
-                          <div style="font-family:Inter, Noto Sans, Arial, Helvetica, sans-serif;font-size:15px;line-height:22px;">
-                            <a href="${website}" style="color:#46aaff;text-decoration:none;" target="_blank" rel="noopener">${website}</a>
-                          </div>
-                        </td>
-                      </tr>`: ""}
-
-                      <!-- Inquiry -->
-                      <tr>
-                        <td style="width:120px;vertical-align:top;padding:10px 0;">
-                          <div style="font-family:Inter, Noto Sans, Arial, Helvetica, sans-serif;font-size:13px;line-height:18px;color:#90adcb;">Inquiry</div>
-                        </td>
-                        <td style="vertical-align:top;padding:10px 0;">
-                          <div style="font-family:Inter, Noto Sans, Arial, Helvetica, sans-serif;font-size:15px;line-height:22px;color:#e6f1fb;">
-                            ${inquiry}
-                          </div>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-${website ? `
-          <tr>
-            <td class="px" style="padding:22px 28px 0 28px;">
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <!-- Secondary CTA shown only if website exists -->
-                  <td style="width:12px;">&nbsp;</td>
-                  <td style="border-radius:10px;background:#314d68;">
-                    <a href="${website}" target="_blank" rel="noopener"
-                       style="display:inline-block;padding:12px 18px;font-family:Inter, Noto Sans, Arial, Helvetica, sans-serif;font-size:14px;font-weight:700;line-height:18px;color:#ffffff;text-decoration:none;">
-                      View Website
-                    </a>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>`: ""}
-
-          <!-- Spacer -->
-          <tr><td style="height:24px;line-height:24px;font-size:0;">&nbsp;</td></tr>
-
-          <!-- Footer -->
-          <tr>
-            <td class="px" style="padding:0 28px 28px 28px;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #314d68;">
-                <tr>
-                  <td style="padding-top:16px;">
-                    <div style="font-family:Inter, Noto Sans, Arial, Helvetica, sans-serif;font-size:12px;line-height:18px;color:#90adcb;">
-                      © ${new Date().getFullYear()} Panielix Solutions. All rights reserved.
-                    </div>
-                    <div style="font-family:Inter, Noto Sans, Arial, Helvetica, sans-serif;font-size:12px;line-height:18px;color:#90adcb;margin-top:4px;">
-                      This message was sent from your website contact form.
-                    </div>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-        </table>
-      </td>
-    </tr>
-  </table>
-</body>
-</html>
-`                 // optional
-    });
+    // Fire-and-forget confirmation (don’t block response)
+    sendCustomerConfirmation(data.fullName, data.email).catch(console.error);
 
     return NextResponse.json({ ok: true });
-  } catch (err: any) {
-    console.error(err);
-    return NextResponse.json({ ok: false, error: err.message }, { status: 400 });
+  } catch (err) {
+    console.error("Contact API error:", err);
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }

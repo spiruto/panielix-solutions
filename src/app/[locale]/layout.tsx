@@ -1,39 +1,57 @@
+// app/[locale]/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, Noto_Sans } from "next/font/google";
 import Script from "next/script";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
+import { hasLocale } from "next-intl";
 import { websiteLd, orgLd } from "@/lib/schema";
-import { NextIntlClientProvider, hasLocale } from 'next-intl';
-import { notFound } from 'next/navigation';
-import { routing } from '@/i18n/routing';
+import { serviceLd } from "@/lib/seo-ld";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const noto = Noto_Sans({ subsets: ["latin"], variable: "--font-noto", display: "swap" });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://www.panielix.com"),
-  title: "Panielix Solutions - Premier Web Development for Small & Medium Businesses",
-  description:
-    "We offer professional, high-converting websites for small and medium businesses. Get a fast, affordable, and conversion-focused website tailored to your needs.",
-  alternates: { canonical: "/" },
-  openGraph: {
-    type: "website",
-    url: "https://www.panielix.com/",
-    title: "Panielix Solutions - High-Converting Websites for SMBs",
-    description:
-      "Tired of losing customers to competitors? We build professional, conversion-focused websites. Launch fast, attract more leads, and grow your revenue.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Panielix Solutions - High-Converting Websites for SMBs",
-    description:
-      "Tired of losing customers to competitors? We build professional, conversion-focused websites. Launch fast, attract more leads, and grow your revenue.",
-    images: ["/twitter-image.jpg"],
-  },
-  icons: { icon: [{ url: "/favicon.ico" }] },
-  robots: { index: true, follow: true },
-};
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const base = new URL("https://www.panielix.com");
+  const title =
+    locale === "es"
+      ? "Panielix Solutions — Sitios web que convierten para PYMEs"
+      : "Panielix Solutions — Conversion-Focused Websites for SMBs";
+  const description =
+    locale === "es"
+      ? "Creamos sitios web rápidos y optimizados para conversión para PYMEs en EE. UU., Canadá y Reino Unido."
+      : "We build fast, high-converting websites for small & medium businesses across the US, Canada, and the UK.";
+
+  return {
+    metadataBase: base,
+    title,
+    description,
+    alternates: {
+      canonical: locale === "es" ? "/es" : "/",
+      languages: { "en-US": "/", "es-ES": "/es" },
+    },
+    openGraph: {
+      type: "website",
+      url: base.toString(),
+      title,
+      description,
+      images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/twitter-image.jpg"],
+    },
+    icons: { icon: [{ url: "/favicon.ico" }] },
+    robots: { index: true, follow: true },
+  };
+}
 
 export default async function RootLayout({
   children,
@@ -42,33 +60,45 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }) {
-  // Ensure that the incoming `locale` is valid
   const { locale } = await params;
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
+  if (!hasLocale(routing.locales, locale)) notFound();
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
+        <Script id="gtm-base" strategy="afterInteractive">{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T26VVVR9');`}</Script>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="preload" as="image" href="/marketing-powerhouse.jpg" />
       </head>
       <body className={`${inter.variable} ${noto.variable} font-sans bg-[var(--slate-950)] text-white`}>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-T26VVVR9"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
 
+        {children}
 
-        {/* Google Analytics (replace GA_MEASUREMENT_ID) */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID" async />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-2DSBBD62HF" async />
         <Script id="ga-init">{`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config','GA_MEASUREMENT_ID');
+          gtag('config','G-2DSBBD62HF');
         `}</Script>
 
-        {/* JSON-LD */}
         <Script id="ld-website" type="application/ld+json">{JSON.stringify(websiteLd)}</Script>
         <Script id="ld-org" type="application/ld+json">{JSON.stringify(orgLd)}</Script>
+        <Script id="ld-service" type="application/ld+json">{JSON.stringify(serviceLd)}</Script>
       </body>
     </html>
   );

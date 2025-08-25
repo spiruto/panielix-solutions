@@ -1,40 +1,55 @@
-export default function Packages() {
-  const phone = "50660481005";
+'use client';
 
+import Script from "next/script";
+import { packagesAsProductLd } from "@/lib/seo-ld";
+
+const packages = [
+  { title: "High-Impact Landing Page", description: "Single-page, conversion-optimized lead engine." },
+  { title: "Business Website", description: "Multi-page presence to showcase services and build trust." },
+  { title: "Content-Driven Website", description: "Blog-ready platform built for search traffic and authority." },
+  { title: "Custom Build", description: "Tailored features, integrations, and e-commerce if needed." },
+];
+
+// Your Facebook Page username or numeric ID
+const FB_PAGE = "772698535925350";
+
+export default function Packages() {
   const cards = [
     {
       icon: "launch",
       title: "Landing Page",
       desc: "Perfect for validating an idea or driving conversions for a single, focused campaign.",
       bullets: ["Single Page Layout", "Conversion-Focused Design", "Lead Capture Form"],
-      whatsappMessage:
-        "Hi Panielix Solutions, I am interested in the Landing Page package. I would like to schedule a free meeting to tell you about my project. I need a high-converting single-page site to capture leads quickly.",
     },
     {
       icon: "web",
-      title: "Mini Site",
+      title: "Business Website",
       desc: "Establish a strong online presence and showcase your core services effectively.",
       bullets: ["Up to 5 Pages", "SEO Optimized", "Mobile-First Design"],
-      whatsappMessage:
-        "Hi Panielix Solutions, I am interested in the Mini Site package. I would like to schedule a free meeting to explain my project. I need a professional site with multiple pages to showcase my services.",
     },
     {
       icon: "article",
-      title: "Blog Starter",
+      title: "Content-Driven Website",
       desc: "Become an authority in your niche and attract organic traffic with a content-driven platform.",
       bullets: ["Full Blog Functionality", "Content Management System", "Advanced SEO Features"],
-      whatsappMessage:
-        "Hi Panielix Solutions, I am interested in the Blog Starter package. I would like to schedule a free meeting to discuss my idea. I need a content-driven site with blogging features to attract organic traffic.",
     },
     {
       icon: "build_circle",
-      title: "Flexible Package",
+      title: "Custom Build",
       desc: "For unique projects requiring e-commerce, custom features, or specific integrations.",
       bullets: ["Custom Scope & Features", "E-commerce / API Integrations", "Dedicated Support"],
-      whatsappMessage:
-        "Hi Panielix Solutions, I am interested in the Flexible Package. I would like to schedule a free meeting to explain my project. I need a custom solution with features like e-commerce or integrations.",
     },
   ];
+
+  // m.me link with ref so you can see which package was clicked in Messenger entry points
+  const messengerUrl = (ref: string) =>
+    `https://m.me/${FB_PAGE}?ref=${encodeURIComponent(ref)}`;
+  const handleMobileDeepLink = () => {
+    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      // fire-and-forget; the normal href still works as fallback
+      window.location.href = `fb-messenger://user-thread/${FB_PAGE}`;
+    }
+  };
 
   return (
     <section id="packages" className="bg-[var(--slate-900)] py-20 sm:py-24">
@@ -46,16 +61,16 @@ export default function Packages() {
           </p>
         </div>
 
-        {/* Ensure equal heights and stretched items */}
-        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 items-stretch">
+        <div className="mt-16 grid grid-cols-1 items-stretch gap-8 md:grid-cols-2 lg:grid-cols-4">
           {cards.map((c) => {
-            const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(c.whatsappMessage)}`;
+            const ref = `package:${c.title}`;
+            const href = messengerUrl(ref);
+
             return (
               <div
                 key={c.title}
                 className="group flex h-full flex-col rounded-lg border border-[var(--slate-700)] bg-[var(--slate-800)] p-8 shadow-lg transition-transform hover:-translate-y-2"
               >
-                {/* CONTENT */}
                 <div className="flex flex-1 flex-col">
                   <div className="flex items-center gap-4">
                     <span className="material-icons text-4xl text-[var(--primary-400)]">{c.icon}</span>
@@ -75,24 +90,28 @@ export default function Packages() {
                     ))}
                   </ul>
 
-                  {/* Spacer to guarantee gap above the button even on short cards */}
                   <div className="mt-6" />
                 </div>
 
-                {/* CTA */}
                 <a
-                  href={waUrl}
+                  href={href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full rounded-lg bg-[var(--primary-500)] px-4 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-[var(--primary-600)]"
+                  onClick={handleMobileDeepLink}
+
                 >
-                  Get Your Quote
+                  Chat on Messenger
                 </a>
               </div>
             );
           })}
         </div>
       </div>
+
+      <Script id="ld-products" type="application/ld+json">
+        {JSON.stringify(packagesAsProductLd(packages))}
+      </Script>
     </section>
   );
 }

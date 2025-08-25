@@ -1,34 +1,34 @@
-import Image from "next/image";
+// import Image from "next/image";
 
-const items = [
-  {
-    title: "Tech Startup",
-    desc: "A sleek, modern website for a growing tech startup.",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuA-wT8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Y8Z8Y8Z8Y8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Y8Z",
-    stats: [
-      { k: "+150%", v: "Traffic" },
-      { k: "+200%", v: "Leads" },
-    ],
-  },
-  {
-    title: "Artisan Boutique",
-    desc: "An e-commerce platform for a local artisan boutique.",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuB-wT8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Z8Y8Z8Y8Z8Y8",
-    stats: [
-      { k: "+90%", v: "Online Sales" },
-      { k: "98", v: "PageSpeed" },
-    ],
-  },
-  {
-    title: "Consulting Firm",
-    desc: "A professional services site for a financial consulting firm.",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuB-wT8Z8Y8Y8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8",
-    stats: [
-      { k: "+300%", v: "Inquiries" },
-      { k: "+40%", v: "Credibility" },
-    ],
-  },
-];
+// const items = [
+//   {
+//     title: "Tech Startup",
+//     desc: "A sleek, modern website for a growing tech startup.",
+//     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuA-wT8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Y8Z8Y8Z8Y8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Y8Z",
+//     stats: [
+//       { k: "+150%", v: "Traffic" },
+//       { k: "+200%", v: "Leads" },
+//     ],
+//   },
+//   {
+//     title: "Artisan Boutique",
+//     desc: "An e-commerce platform for a local artisan boutique.",
+//     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuB-wT8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Z8Y8Z8Y8Z8Y8",
+//     stats: [
+//       { k: "+90%", v: "Online Sales" },
+//       { k: "98", v: "PageSpeed" },
+//     ],
+//   },
+//   {
+//     title: "Consulting Firm",
+//     desc: "A professional services site for a financial consulting firm.",
+//     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuB-wT8Z8Y8Y8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8Z8Y8",
+//     stats: [
+//       { k: "+300%", v: "Inquiries" },
+//       { k: "+40%", v: "Credibility" },
+//     ],
+//   },
+// ];
 
 export default function Portfolio() {
   return (

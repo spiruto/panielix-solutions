@@ -9,10 +9,11 @@ import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import WhatsAppFab from "@/components/WhatsAppFab";
+import MessengerFab from "@/components/MessengerFab";
 import MobileBottomCTA from "@/components/MobileBottomCTA";
 import ConsentBanner from "@/components/ConsentBanner";
-import ExitIntentModal from "@/components/ExitIntentModal";
+// import ExitIntentModal from "@/components/ExitIntentModal";
+import Ideas from "@/components/Ideas";
 
 export default function Page() {
   return (
@@ -22,6 +23,7 @@ export default function Page() {
         <Hero />
         <Benefits />
         <Packages />
+        <Ideas/>
         <Portfolio />
         <Process />
         <Powerhouse />
@@ -30,7 +32,7 @@ export default function Page() {
         <Contact />
       </main>
       <Footer />
-      <WhatsAppFab />
+      <MessengerFab />
       <MobileBottomCTA />
       <ConsentBanner />
       {/* <ExitIntentModal /> */}

@@ -15,6 +15,6 @@ export const orgLd = {
   "@type": "Organization",
   name: "Panielix LLC",
   url: "https://www.panielix.com/",
-  logo: "https://www.panielix.com/og-image.jpg",
+  logo: "https://www.panielix.com/logo-panielix.png",
   sameAs: [],
 };
