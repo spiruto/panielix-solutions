@@ -14,10 +14,11 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "sw
 const noto = Noto_Sans({ subsets: ["latin"], variable: "--font-noto", display: "swap" });
 
 export async function generateMetadata({
-  params: { locale },
+  params,
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
+  const { locale } = await params;
   const base = new URL("https://www.panielix.com");
   const title =
     locale === "es"
@@ -76,6 +77,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <Script id="crisp" strategy="afterInteractive">
+          {`
+            window.$crisp=[];
+            window.CRISP_WEBSITE_ID="73607393-c3ae-4b7d-a2ee-0609f7e1843b";
+            (function(){
+              var d=document;
+              var s=d.createElement("script");
+              s.src="https://client.crisp.chat/l.js";
+              s.async=1;
+              d.getElementsByTagName("head")[0].appendChild(s);
+            })();
+          `}
+        </Script>
       </head>
       <body className={`${inter.variable} ${noto.variable} font-sans bg-[var(--slate-950)] text-white`}>
         <noscript>
@@ -100,6 +114,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <Script id="ld-website" type="application/ld+json">{JSON.stringify(websiteLd)}</Script>
         <Script id="ld-org" type="application/ld+json">{JSON.stringify(orgLd)}</Script>
         <Script id="ld-service" type="application/ld+json">{JSON.stringify(serviceLd)}</Script>
+        {/* <Script id="tawkto" strategy="afterInteractive">
+          {`
+            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+            (function(){
+              var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+              s1.async=true;
+              s1.src='https://embed.tawk.to/68ade2d9a8e039192a6ad829/1j3jjs8mc';
+              s1.charset='UTF-8';
+              s1.setAttribute('crossorigin','*');
+              s0.parentNode.insertBefore(s1,s0);
+            })();
+          `}
+        </Script> */}
       </body>
     </html>
   );

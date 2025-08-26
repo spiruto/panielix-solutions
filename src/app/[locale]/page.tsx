@@ -32,7 +32,7 @@ export default function Page() {
         <Contact />
       </main>
       <Footer />
-      <MessengerFab />
+      {/* <MessengerFab /> */}
       <MobileBottomCTA />
       <ConsentBanner />
       {/* <ExitIntentModal /> */}
