@@ -9,6 +9,9 @@ import { hasLocale } from "next-intl";
 import { websiteLd, orgLd } from "@/lib/schema";
 import { serviceLd } from "@/lib/seo-ld";
 import MetaPixel from "@/components/MetaPixel";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ConsentBanner from "@/components/ConsentBanner";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const noto = Noto_Sans({ subsets: ["latin"], variable: "--font-noto", display: "swap" });
@@ -101,8 +104,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         <MetaPixel />
-        {children}
-
+        <div className="relative flex min-h-screen flex-col overflow-x-hidden">
+          <Header />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+          {/* <MessengerFab /> */}
+          {/* <MobileBottomCTA /> */}
+          <ConsentBanner />
+          {/* <ExitIntentModal /> */}
+        </div>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-2DSBBD62HF" async />
         <Script id="ga-init">{`
           window.dataLayer = window.dataLayer || [];

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="bg-[var(--slate-900)]">
@@ -27,8 +29,8 @@ export default function Footer() {
         <div className="mt-8 border-t border-[var(--slate-700)] pt-8 md:flex md:items-center md:justify-between">
           <p className="text-center text-base text-[var(--slate-400)]">© {new Date().getFullYear()} - All Rights Reserved</p>
           <div className="mt-4 flex justify-center space-x-6 md:mt-0">
-            <a className="text-sm text-[var(--slate-400)] hover:text-white" href="#">Privacy Policy</a>
-            <a className="text-sm text-[var(--slate-400)] hover:text-white" href="#">Terms of Service</a>
+            <Link className="text-sm text-[var(--slate-400)] hover:text-white" href="/privacy-policy">Privacy Policy</Link>
+            <Link className="text-sm text-[var(--slate-400)] hover:text-white" href="/terms-and-conditions">Terms of Service</Link>
           </div>
         </div>
       </div>
