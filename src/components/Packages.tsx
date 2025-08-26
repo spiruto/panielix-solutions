@@ -10,12 +10,20 @@ const packages = [
   { title: 'Custom Build', description: 'Tailored features, integrations, and e-commerce if needed.' },
 ];
 
-/**
- * Packages (Crisp-enabled)
- * - Replaces Messenger CTA with a Crisp chat opener that auto-sends a package-specific message.
- * - Requires Crisp script loaded globally (in <head>) as per previous instructions.
- * - Graceful fallback: if Crisp hasn't loaded, we send the user to the #contact section instead.
- */
+// ---- Crisp typings (minimal but strict enough) ----
+type CrispCommand =
+  | ['do', 'chat:open']
+  | ['do', 'message:send', ['text', string]]
+  | ['set', 'session:segments', [string[]]];
+
+type CrispQueue = CrispCommand[];
+
+declare global {
+  interface Window {
+    $crisp?: CrispQueue;
+  }
+}
+
 export default function Packages() {
   const cards = [
     {
@@ -48,32 +56,32 @@ export default function Packages() {
       desc: 'For unique projects requiring e-commerce, custom features, or specific integrations.',
       bullets: ['Custom Scope & Features', 'E-commerce / API Integrations', 'Dedicated Support'],
       chatText:
-        "Hi! I need a Custom Build. Here are my goals—can we discuss features, budget, and next steps?",
+        'Hi! I need a Custom Build. Here are my goals—can we discuss features, budget, and next steps?',
     },
   ];
 
   const openCrispWith = (message: string, pkgTitle: string) => {
     try {
-      const w = window as any;
-      // Tag/segment the event in Crisp (optional) so you know which package triggered the chat
-      // w.$crisp?.push(["set", "session:segments", [[`package:${pkgTitle}`]]]);
+      const q = typeof window !== 'undefined' ? window.$crisp : undefined;
 
-      // Open chat & send message
-      w.$crisp?.push(['do', 'chat:open']);
-      w.$crisp?.push(['do', 'message:send', ['text', message]]);
-
-      // If Crisp isn't present yet, fallback to contact section
-      if (!w.$crisp) {
-        // Optional: route to /contact or scroll to a section
-        const hash = '#contact';
-        if (hash && document.querySelector(hash)) {
-          document.querySelector(hash)!.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          window.location.href = '/contact';
-        }
+      if (q) {
+        // use pkgTitle so it's not "unused" and to segment sessions in Crisp
+        q.push(['set', 'session:segments', [[`package:${pkgTitle}`]]]);
+        q.push(['do', 'chat:open']);
+        q.push(['do', 'message:send', ['text', message]]);
+        return;
       }
-    } catch (e) {
-      // Hard fallback
+
+      // Fallback if Crisp isn't ready
+      const hash = '#contact';
+      const el = typeof document !== 'undefined' ? document.querySelector(hash) : null;
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.location.href = '/contact';
+      }
+    } catch {
+      // Hard fallback without an unused "e"
       window.location.href = '/contact';
     }
   };

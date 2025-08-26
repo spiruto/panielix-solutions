@@ -9,7 +9,7 @@ import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import MessengerFab from "@/components/MessengerFab";
+// import MessengerFab from "@/components/MessengerFab";
 import MobileBottomCTA from "@/components/MobileBottomCTA";
 import ConsentBanner from "@/components/ConsentBanner";
 // import ExitIntentModal from "@/components/ExitIntentModal";
