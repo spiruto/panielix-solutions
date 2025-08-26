@@ -10,7 +10,7 @@ import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 // import MessengerFab from "@/components/MessengerFab";
-import MobileBottomCTA from "@/components/MobileBottomCTA";
+// import MobileBottomCTA from "@/components/MobileBottomCTA";
 import ConsentBanner from "@/components/ConsentBanner";
 // import ExitIntentModal from "@/components/ExitIntentModal";
 import Ideas from "@/components/Ideas";
@@ -33,7 +33,7 @@ export default function Page() {
       </main>
       <Footer />
       {/* <MessengerFab /> */}
-      <MobileBottomCTA />
+      {/* <MobileBottomCTA /> */}
       <ConsentBanner />
       {/* <ExitIntentModal /> */}
     </div>
