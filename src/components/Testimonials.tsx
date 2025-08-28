@@ -1,38 +1,40 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
-const items = [
 
-  {
-    name: "Marcus Reid — Northshore Roofing (Vancouver, BC)",
-    quote:
-      "I asked for something simple where folks could see photos of past jobs and call me. That’s exactly what I got—no fluff. Calls picked up within two weeks and the gallery loads fast even on site.",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCuNtfKDDs2i1DO6mQJmAAC-ohx7cvHA3N1-hQ5vyWncThIW_jQBFCw_dHjSSucRYHyyKl_w1fjLHAB9mlp9WIk8rNaxP7LqIHDnVR40djVggvDv1UgklFnyBBhbE4lYDzZ_vO6CaAL6aY9jid6EQO0J5XB2k-UY36RBjggunRNTYhagrHv4sLzy0Wqjq0FqOhReDOZ1H4NNmm7mkiH67cXEOPwg76eQFqAqIR7mqZm2g3yKk8QpCieSn4-YXp2hbzqH-rM2cTz0SQ",
-  },
-  {
-    name: "Amelia Brooks — The Copper Spoon (Manchester, UK)",
-    quote:
-      "They put our menu online with a QR for tables and added click-to-call. We get fewer ‘are you open?’ messages and more actual bookings. Staff love not hunting for the latest PDF.",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC2wMnKtyw2Qe1KTTm7G9-t2FvkFqr8JHCn0vGBUyf81K4si9XucRZlvGjmBX_7tsMf_Tmq6njdCnKzQq_9kREtM2cL2pSL0_mlTG1Lm7nwshEpCoztMQrVLlD8qhVG9hkwMZWSMDGNFkPt2nQmkUQ7AZsMS7rxQ2k9l4RQhIavxLRqwgO32DPQUm_KpAxZZsU1iUqPo2C7MncL2RsZVIaLvr_ovhLUC4r0DxBRKY0uxOsTvLFiGYu9OAg4v9WHpKQVBRbbsqiuKFY",
-  },
-  {
-    name: "Dylan Carter — Brightline Fitness (Boston, MA)",
-    quote:
-      "Our old site was basically a flyer. Now we show classes, memberships, and real photos. People sign up for a trial online, and my phone stopped being quiet on Mondays.",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCucfARab-JpzGvIKrPAw2LgPtWwtvWYkIVGv2dMV-9F_ZSl7pFOZQ3PEgPZ2HV7dIoxCt2Ywwi4OotjhwS2fmOwmopWFjoN2EVCA0epxSdbPnEeX2jH2FVoOXTpaPUOelTdAz64D8mxHXuSc8CNRsaVZKmxbWb-66aDA86NwMp8yaippfqHo-DZkos-8KG_Wlp9TsmxJ2wqs5waOM0Vm9U55aOBtEPMUNXFlBIxAJwLFt2zDJGGwL57VH2uTy1rbRb6IxnpsPoYNA",
-  },
-];
 
 export default function Testimonials() {
+  const t = useTranslations('Testimonials');
+  const common = useTranslations('Common');
+  const items = [
+
+    {
+      name: t("items.northshore.name"),
+      quote:
+        t("items.northshore.quote"),
+      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCuNtfKDDs2i1DO6mQJmAAC-ohx7cvHA3N1-hQ5vyWncThIW_jQBFCw_dHjSSucRYHyyKl_w1fjLHAB9mlp9WIk8rNaxP7LqIHDnVR40djVggvDv1UgklFnyBBhbE4lYDzZ_vO6CaAL6aY9jid6EQO0J5XB2k-UY36RBjggunRNTYhagrHv4sLzy0Wqjq0FqOhReDOZ1H4NNmm7mkiH67cXEOPwg76eQFqAqIR7mqZm2g3yKk8QpCieSn4-YXp2hbzqH-rM2cTz0SQ",
+    },
+    {
+      name: t("items.copperSpoon.name"),
+      quote:
+        t("items.copperSpoon.quote"),
+        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC2wMnKtyw2Qe1KTTm7G9-t2FvkFqr8JHCn0vGBUyf81K4si9XucRZlvGjmBX_7tsMf_Tmq6njdCnKzQq_9kREtM2cL2pSL0_mlTG1Lm7nwshEpCoztMQrVLlD8qhVG9hkwMZWSMDGNFkPt2nQmkUQ7AZsMS7rxQ2k9l4RQhIavxLRqwgO32DPQUm_KpAxZZsU1iUqPo2C7MncL2RsZVIaLvr_ovhLUC4r0DxBRKY0uxOsTvLFiGYu9OAg4v9WHpKQVBRbbsqiuKFY",
+    },
+    {
+      name: t("items.brightline.name"),
+      quote:
+        t("items.brightline.quote"),
+         img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCucfARab-JpzGvIKrPAw2LgPtWwtvWYkIVGv2dMV-9F_ZSl7pFOZQ3PEgPZ2HV7dIoxCt2Ywwi4OotjhwS2fmOwmopWFjoN2EVCA0epxSdbPnEeX2jH2FVoOXTpaPUOelTdAz64D8mxHXuSc8CNRsaVZKmxbWb-66aDA86NwMp8yaippfqHo-DZkos-8KG_Wlp9TsmxJ2wqs5waOM0Vm9U55aOBtEPMUNXFlBIxAJwLFt2zDJGGwL57VH2uTy1rbRb6IxnpsPoYNA",
+    },
+  ];
   return (
     <section className="py-20 sm:py-24">
       <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          Real Results from Businesses Like Yours
+          {t("title")}
         </h2>
         <p className="mt-4 text-lg text-[var(--slate-400)]">
-          What it&apos;s like working with{" "}
-          <span className="font-semibold text-white">Panielix Solutions</span>,
-          in our clients’ own words.
+          {t("desc", { brandName: common("brandName") })}
         </p>
       </div>
 

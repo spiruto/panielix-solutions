@@ -1,18 +1,21 @@
+import { useTranslations } from "next-intl";
+
 export default function Process() {
+    const t = useTranslations('Process');
+
   const steps = [
-    ["Strategy & Quote", "We define your goals and provide a clear, value-based quote."],
-    ["Rapid Development", "Our team builds your high-speed, conversion-focused website using an agile, efficient workflow."],
-    ["Collaborative Review", "We work with you to refine and perfect the site, ensuring it aligns perfectly with your vision."],
-    ["Launch & Empower", "We deploy your site and provide the training and support you need to start generating leads immediately."],
+    [t("steps.s1.title"), t("steps.s1.body")],
+    [t("steps.s2.title"), t("steps.s2.body")],
+    [t("steps.s3.title"), t("steps.s3.body")],
+    [t("steps.s4.title"), t("steps.s4.body")],
   ];
 
   return (
     <section id="process" className="py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Our Efficiency-Focused Process</h2>
-          <p className="mt-4 mx-auto max-w-2xl text-lg text-[var(--slate-400)]">
-            We&apos;ve streamlined our process to deliver maximum value and get your revenue-generating website live, faster.
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{t("title")}</h2>
+          <p className="mt-4 mx-auto max-w-2xl text-lg text-[var(--slate-400)]">{t("intro")}
           </p>
         </div>
 

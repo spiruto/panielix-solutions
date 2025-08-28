@@ -1,5 +1,7 @@
 // import Image from "next/image";
 
+import { useTranslations } from "next-intl";
+
 // const items = [
 //   {
 //     title: "Tech Startup",
@@ -31,13 +33,14 @@
 // ];
 
 export default function Portfolio() {
+    const t = useTranslations('Work');
+
   return (
     <section id="portfolio" className="bg-[var(--slate-900)] py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Our Work Delivers Tangible Results</h2>
-          <p className="mt-4 mx-auto max-w-2xl text-lg text-[var(--slate-400)]">
-            We deliver stunning, high-performance websites that translate into real business growth.
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{t("title")}</h2>
+          <p className="mt-4 mx-auto max-w-2xl text-lg text-[var(--slate-400)]">{t("desc")}
           </p>
         </div>
 

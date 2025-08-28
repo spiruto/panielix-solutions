@@ -1,4 +1,9 @@
+import { useTranslations } from "next-intl";
+import Link from "next/link";
+
 export default function Hero() {
+    const t = useTranslations('Hero');
+
   return (
     <section
       id="home"
@@ -11,36 +16,35 @@ export default function Hero() {
       <div className="absolute inset-0 hero-gradient-overlay" />
       <div className="relative z-10 mx-auto max-w-4xl px-4">
         <h1 className="text-4xl font-black leading-tight tracking-tighter text-white sm:text-5xl md:text-7xl">
-          Your Website Should Make You Money, Not Cost You Money.
+          {t("title")}
         </h1>
-        <p className="mt-4 text-lg font-normal text-gray-200 md:text-xl">
-          We build high-value, lead-generating websites for small and medium businesses ready to grow. Stop losing customers and start converting them.
+        <p className="mt-4 text-lg font-normal text-gray-200 md:text-xl">{t("subtitle")}
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a
+          <Link
             href="#contact"
             className="inline-flex w-full items-center justify-center rounded-lg bg-[var(--primary-500)] px-8 py-3 text-base font-bold text-white shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-[var(--primary-600)] sm:w-auto"
           >
-            Start My Project
-          </a>
-          <a
+            {t("ctaPrimary")}
+          </Link>
+          <Link
             href="#packages"
             className="inline-flex w-full items-center justify-center rounded-lg border border-[var(--primary-400)] px-8 py-3 text-base font-bold text-white shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-[var(--primary-400)] sm:w-auto"
           >
-            Explore Our Solutions
-          </a>
+            {t("ctaSecondary")}
+          </Link>
         </div>
         <div className="mt-8 flex items-center justify-center gap-4 text-sm text-[var(--slate-400)]">
           <span className="flex items-center gap-1">
-            <span className="material-icons text-base text-green-400">verified</span> No Hidden Fees or Long Contracts
+            <span className="material-icons text-base text-green-400">verified</span>   {t("badgeNoFees")}
           </span>
           <span className="h-4 w-px bg-[var(--slate-700)]" />
           <span className="flex items-center gap-1">
-            <span className="material-icons text-base text-green-400">verified</span> Fast Turnaround Guaranteed
+            <span className="material-icons text-base text-green-400">verified</span>   {t("badgeFast")}
           </span>
           <span className="h-4 w-px bg-[var(--slate-700)]" />
           <span className="flex items-center gap-1">
-            <span className="material-icons text-base text-green-400">verified</span> Optimized to Generate Leads
+            <span className="material-icons text-base text-green-400">verified</span>   {t("badgeLeads")}
           </span>
         </div>
       </div>

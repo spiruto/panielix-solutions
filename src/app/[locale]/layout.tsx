@@ -5,13 +5,15 @@ import { Inter, Noto_Sans } from "next/font/google";
 import Script from "next/script";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { hasLocale } from "next-intl";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { websiteLd, orgLd } from "@/lib/schema";
 import { serviceLd } from "@/lib/seo-ld";
 import MetaPixel from "@/components/MetaPixel";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ConsentBanner from "@/components/ConsentBanner";
+import LocaleSwitcherFab from "@/components/LocaleSwitcherFAB";
+import { getTranslations } from "next-intl/server";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const noto = Noto_Sans({ subsets: ["latin"], variable: "--font-noto", display: "swap" });
@@ -21,17 +23,11 @@ export async function generateMetadata({
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
+  const t = await getTranslations('Common');
   const { locale } = await params;
   const base = new URL("https://www.panielix.com");
-  const title =
-    locale === "es"
-      ? "Panielix Solutions — Sitios web que convierten para PYMEs"
-      : "Panielix Solutions — Conversion-Focused Websites for SMBs";
-  const description =
-    locale === "es"
-      ? "Creamos sitios web rápidos y optimizados para conversión para PYMEs en EE. UU., Canadá y Reino Unido."
-      : "We build fast, high-converting websites for small & medium businesses across the US, Canada, and the UK.";
-
+  const title = t("metaTitle");
+  const description =t("metaDescription")
   return {
     metadataBase: base,
     title,
@@ -95,7 +91,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </Script>
       </head>
       <body className={`${inter.variable} ${noto.variable} font-sans bg-[var(--slate-950)] text-white`}>
-        <noscript>
+
+        <NextIntlClientProvider> <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-T26VVVR9"
             height="0"
@@ -103,30 +100,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        <MetaPixel />
-        <div className="relative flex min-h-screen flex-col overflow-x-hidden">
-          <Header />
-          <main className="flex-grow">
-            {children}
-          </main>
-          <Footer />
-          {/* <MessengerFab /> */}
-          {/* <MobileBottomCTA /> */}
-          <ConsentBanner />
-          {/* <ExitIntentModal /> */}
-        </div>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-2DSBBD62HF" async />
-        <Script id="ga-init">{`
+          <MetaPixel />
+          <div className="relative flex min-h-screen flex-col overflow-x-hidden">
+            <Header />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+            {/* <MessengerFab /> */}
+            {/* <MobileBottomCTA /> */}
+            <ConsentBanner />
+            <LocaleSwitcherFab />
+            {/* <ExitIntentModal /> */}
+          </div>
+          <Script src="https://www.googletagmanager.com/gtag/js?id=G-2DSBBD62HF" async />
+          <Script id="ga-init">{`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config','G-2DSBBD62HF');
         `}</Script>
 
-        <Script id="ld-website" type="application/ld+json">{JSON.stringify(websiteLd)}</Script>
-        <Script id="ld-org" type="application/ld+json">{JSON.stringify(orgLd)}</Script>
-        <Script id="ld-service" type="application/ld+json">{JSON.stringify(serviceLd)}</Script>
-        {/* <Script id="tawkto" strategy="afterInteractive">
+          <Script id="ld-website" type="application/ld+json">{JSON.stringify(websiteLd)}</Script>
+          <Script id="ld-org" type="application/ld+json">{JSON.stringify(orgLd)}</Script>
+          <Script id="ld-service" type="application/ld+json">{JSON.stringify(serviceLd)}</Script>
+          {/* <Script id="tawkto" strategy="afterInteractive">
           {`
             var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
             (function(){
@@ -139,6 +137,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             })();
           `}
         </Script> */}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

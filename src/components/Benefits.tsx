@@ -1,16 +1,21 @@
+import { useTranslations } from "next-intl";
+
 export default function Benefits() {
+  const t = useTranslations('Benefits');
+  const common = useTranslations('Common');
+
   const items = [
-    { icon: "visibility", title: "Attract More Customers", desc: "Our SEO-optimized websites are designed to rank higher on Google, bringing more qualified leads directly to you." },
-    { icon: "monetization_on", title: "Convert Visitors into Sales", desc: "We use proven conversion design principles to turn your website visitors into paying customers and boost your revenue." },
-    { icon: "shield", title: "Build Unshakeable Trust", desc: "A polished, modern website establishes your authority and builds the credibility needed to win over discerning customers." },
+    { icon: "visibility", title: t("cards.attract.title"), desc: t("cards.attract.body") },
+    { icon: "monetization_on", title: t("cards.convert.title"), desc: t("cards.convert.body") },
+    { icon: "shield", title: t("cards.trust.title"), desc: t("cards.trust.body") },
   ];
   return (
     <section id="benefits" className="py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Your Website is Your #1 Sales Tool. We&apos;ll Make it a Winner.</h2>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{t("title")}</h2>
           <p className="mt-4 mx-auto max-w-3xl text-lg text-[var(--slate-400)]">
-            Stop settling for an underperforming website. A professional online presence is crucial for attracting customers, building credibility, and driving growth in today&apos;s digital-first world.
+            {t("intro")}
           </p>
         </div>
 
@@ -31,7 +36,7 @@ export default function Benefits() {
             href="#contact"
             className="inline-flex items-center justify-center rounded-lg bg-[var(--primary-500)] px-8 py-3 text-base font-bold text-white shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-[var(--primary-600)]"
           >
-            Get Your Free Proposal
+            {common("cta.getFreeProposal")}
           </a>
         </div>
       </div>

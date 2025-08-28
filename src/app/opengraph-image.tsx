@@ -1,4 +1,5 @@
 // app/opengraph-image.tsx
+import { getTranslations } from "next-intl/server";
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
@@ -7,6 +8,8 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
+  const t = await getTranslations('Opengraph');
+
   return new ImageResponse(
     (
       <div
@@ -22,9 +25,9 @@ export default async function Image() {
         }}
       >
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-          <div>Panielix Solutions</div>
+          <div>{t("brandName")}</div>
           <div style={{ fontSize: 36, fontWeight: 500 }}>
-            Conversion-Focused Websites for SMBs (US • Canada • UK)
+            {t("desc")}
           </div>
         </div>
       </div>

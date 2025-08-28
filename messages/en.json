@@ -1,1 +1,346 @@
-{}
+{
+  "Common": {
+    "brandName": "Panielix Solutions",
+    "metaTitle":"Panielix Solutions — Web Development and Digital Marketing",
+    "metaDescription":"We build fast, high-converting websites for small & medium businesses.",
+    "cta": {
+      "getQuote": "Get Your Quote",
+      "startProject": "Start My Project",
+      "exploreSolutions": "Explore Our Solutions",
+      "chatWithUs": "Chat with Us",
+      "getFreeProposal": "Get Your Free Proposal",
+      "startBuildingAsset": "Start Building Your Asset",
+      "sendInformation": "Send Information"
+    },
+    "form": {
+      "name": "Name *",
+      "email": "Email *",
+      "websiteOptional": "Company Website (Optional)",
+      "projectDetails": "Tell us about your project *",
+      "agreeContact": "By submitting, you agree to be contacted about your inquiry.",
+      "submit": "Send Information"
+    }
+  },
+  "Opengraph": {
+    "brandName": "Panielix Solutions",
+    "desc": "Conversion-Focused Websites for SMBs."
+  },
+  "Nav": {
+    "home": "Home",
+    "benefits": "Benefits",
+    "packages": "Packages",
+    "process": "Process",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "getQuote": "Get Your Quote",
+    "menu": "menu"
+  },
+  "Hero": {
+    "title": "Your Website Should Make You Money, Not Cost You Money.",
+    "subtitle": "We build high-value, lead-generating websites for small and medium businesses ready to grow. Stop losing customers and start converting them.",
+    "badgeNoFees": "No Hidden Fees or Long Contracts",
+    "badgeFast": "Fast Turnaround Guaranteed",
+    "badgeLeads": "Optimized to Generate Leads",
+    "ctaPrimary": "Start My Project",
+    "ctaSecondary": "Explore Our Solutions"
+  },
+  "Benefits": {
+    "title": "Your Website is Your #1 Sales Tool. We'll Make it a Winner.",
+    "intro": "Stop settling for an underperforming website. A professional online presence is crucial for attracting customers, building credibility, and driving growth in today's digital-first world.",
+    "cards": {
+      "attract": {
+        "title": "Attract More Customers",
+        "body": "Our SEO-optimized websites are designed to rank higher on Google, bringing more qualified leads directly to you."
+      },
+      "convert": {
+        "title": "Convert Visitors into Sales",
+        "body": "We use proven conversion design principles to turn your website visitors into paying customers and boost your revenue."
+      },
+      "trust": {
+        "title": "Build Unshakeable Trust",
+        "body": "A polished, modern website establishes your authority and builds the credibility needed to win over discerning customers."
+      }
+    }
+  },
+  "Solutions": {
+    "title": "Solutions Tailored for Growth",
+    "intro": "We don't sell packages; we provide value-driven solutions. Find the perfect fit to achieve your business goals.",
+    "landing": {
+      "title": "Landing Page",
+      "desc": "Perfect for validating an idea or driving conversions for a single, focused campaign.",
+      "bullets": {
+        "b1": "Single Page Layout",
+        "b2": "Conversion-Focused Design",
+        "b3": "Lead Capture Form"
+      }
+    },
+    "business": {
+      "title": "Business Website",
+      "desc": "Establish a strong online presence and showcase your core services effectively.",
+      "bullets": {
+        "b1": "Up to 5 Pages",
+        "b2": "SEO Optimized",
+        "b3": "Mobile-First Design"
+      }
+    },
+    "content": {
+      "title": "Content-Driven Website",
+      "desc": "Become an authority in your niche and attract organic traffic with a content-driven platform.",
+      "bullets": {
+        "b1": "Full Blog Functionality",
+        "b2": "Content Management System",
+        "b3": "Advanced SEO Features"
+      }
+    },
+    "custom": {
+      "title": "Custom Build",
+      "desc": "For unique projects requiring e-commerce, custom features, or specific integrations.",
+      "bullets": {
+        "b1": "Custom Scope & Features",
+        "b2": "E-commerce / API Integrations",
+        "b3": "Dedicated Support"
+      }
+    }
+  },
+  "Ideas": {
+    "title": "Ideas to Inspire Your Website",
+    "intro": "Not sure what type of website you need? Here are 15 high-impact ideas that can turn visitors into paying customers across different industries.",
+    "items": {
+      "restaurants": {
+        "title": "Restaurants & Cafés",
+        "desc": "Show your full menu online with photos and prices. Add a QR code on tables so customers can view instantly and call to order."
+      },
+      "gyms": {
+        "title": "Gyms & Fitness Centers",
+        "desc": "Highlight membership packages, schedules, and trainers. Add sign-up forms to convert visitors into paying members."
+      },
+      "construction": {
+        "title": "Construction & Contractors",
+        "desc": "Showcase past projects, testimonials, and contact options. Build trust and attract clients for bigger jobs."
+      },
+      "agencies": {
+        "title": "Marketing Agencies",
+        "desc": "List services, packages, and case studies. A sharp site gives instant authority and helps close more deals."
+      },
+      "shops": {
+        "title": "Shops & Boutiques",
+        "desc": "Showcase products, brand story, and Google Maps location. Drive both online and in-person sales."
+      },
+      "clinics": {
+        "title": "Clinics & Health Professionals",
+        "desc": "Share services, pricing, and contact info. Add booking forms so patients can easily schedule appointments."
+      },
+      "events": {
+        "title": "Event Planners & Venues",
+        "desc": "Promote packages, display past events, and use galleries. Make it easy for clients to book you fast."
+      },
+      "tutors": {
+        "title": "Tutors & Coaches",
+        "desc": "Showcase expertise, packages, and testimonials. Let students or parents schedule sessions online."
+      },
+      "realEstate": {
+        "title": "Real Estate Agents",
+        "desc": "List available properties with photos, pricing, and contact options. Generate more qualified leads instantly."
+      },
+      "spas": {
+        "title": "Spas & Beauty Salons",
+        "desc": "Show treatments, prices, and before/after results. Add booking links to fill your calendar 24/7."
+      },
+      "transport": {
+        "title": "Transportation Services",
+        "desc": "Promote airport transfers, limo services, or delivery. Customers can see prices and book directly online."
+      },
+      "nonprofits": {
+        "title": "Nonprofits & Charities",
+        "desc": "Share your mission, events, and donation options. A modern site builds trust and drives more support."
+      },
+      "pets": {
+        "title": "Pet Services",
+        "desc": "Promote grooming, walking, or boarding services. Add galleries and testimonials to attract more pet owners."
+      },
+      "it": {
+        "title": "IT & Tech Services",
+        "desc": "Highlight your services, pricing, and success stories. Capture more B2B leads with professional credibility."
+      },
+      "travel": {
+        "title": "Travel & Tourism",
+        "desc": "Show packages, destinations, and booking info. Inspire visitors to reach out and plan their next trip."
+      }
+    }
+  },
+  "Work": {
+    "title": "Our Work Delivers Tangible Results",
+    "desc": "We deliver stunning, high-performance websites that translate into real business growth."
+  },
+  "Process": {
+    "title": "Our Efficiency-Focused Process",
+    "intro": "We've streamlined our process to deliver maximum value and get your revenue-generating website live, faster.",
+    "steps": {
+      "s1": {
+        "title": "Strategy & Quote",
+        "body": "We define your goals and provide a clear, value-based quote."
+      },
+      "s2": {
+        "title": "Rapid Development",
+        "body": "Our team builds your high-speed, conversion-focused website using an agile, efficient workflow."
+      },
+      "s3": {
+        "title": "Collaborative Review",
+        "body": "We work with you to refine and perfect the site, ensuring it aligns perfectly with your vision."
+      },
+      "s4": {
+        "title": "Launch & Empower",
+        "body": "We deploy your site and provide the training and support you need to start generating leads immediately."
+      }
+    }
+  },
+  "MarketingPowerhouse": {
+    "title": "More Than a Website: A Marketing Powerhouse",
+    "body": "A great website is the foundation of your digital marketing. It works 24/7 to attract, engage, and convert customers, acting as your most efficient salesperson. We build websites that are not just beautiful, but are engineered to be high-performance marketing engines for your business.",
+    "bullets": {
+      "leadGen": "Lead Generation Machine: Capture high-quality leads directly through optimized forms and clear calls-to-action.",
+      "authority": "Enhanced Brand Authority: A professional site builds trust and positions you as a leader in your industry.",
+      "insights": "Data-Driven Insights: Integrated analytics allow you to understand your customers and make smarter business decisions."
+    },
+    "cta": "Start Building Your Asset"
+  },
+  "Testimonials": {
+    "title": "Real Results from Businesses Like Yours",
+    "desc": "What it's like working with {brandName} in our clients own words.",
+    "items": {
+      "northshore": {
+        "name": "Marcus Reid — Northshore Roofing (Vancouver, BC)",
+        "quote": "I asked for something simple where folks could see photos of past jobs and call me. That’s exactly what I got—no fluff. Calls picked up within two weeks and the gallery loads fast even on site."
+      },
+      "copperSpoon": {
+        "name": "Amelia Brooks — The Copper Spoon (Manchester, UK)",
+        "quote": "They put our menu online with a QR for tables and added click-to-call. We get fewer ‘are you open?’ messages and more actual bookings. Staff love not hunting for the latest PDF."
+      },
+      "brightline": {
+        "name": "Dylan Carter — Brightline Fitness (Boston, MA)",
+        "quote": "Our old site was basically a flyer. Now we show classes, memberships, and real photos. People sign up for a trial online, and my phone stopped being quiet on Mondays."
+      }
+    }
+  },
+  "FAQ": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Clear, practical answers to help you understand how we work.",
+    "groups": {
+      "pricing": {
+        "title": "Pricing & Payments",
+        "q1": "How much will it cost?",
+        "a1": "Pricing depends on scope. Landing pages are the most affordable, while multi-page business websites and advanced projects vary by requirements. After a quick discovery call, we’ll provide a clear, fixed quote with deliverables.",
+        "q2": "What’s your payment schedule?",
+        "a2": "Typically 50% upfront and 50% at launch. For larger builds we can split into milestones. We accept major credit cards and bank transfers.",
+        "q3": "What’s included in the price?",
+        "a3": "All packages include design, development, responsive layout, performance optimization, SEO-friendly setup, 1 year of hosting, 1 year of domain registration, and 1 year of professional email.",
+        "q4": "What happens if I cancel?",
+        "a4": "You keep ownership of all work completed and paid for. Any finished assets or code will be delivered to you at the point of cancellation."
+      },
+      "timeline": {
+        "title": "Timeline & Process",
+        "q1": "How long does a typical project take?",
+        "a1": "Most landing pages launch in 2–3 weeks. Business websites (multi-page) usually take 4–6 weeks depending on scope, content readiness, and feedback. Custom projects can extend longer.",
+        "q2": "How many revisions do I get?",
+        "a2": "We include structured feedback rounds during design and pre-launch. Small changes are expected; major scope changes may adjust cost or timeline, but we’ll always confirm with you first.",
+        "q3": "Can you work with tight deadlines?",
+        "a3": "Yes. If capacity allows, we can prioritize urgent projects and deliver faster timelines.",
+        "q4": "Do I own the website once it’s complete?",
+        "a4": "Yes. Once the final payment is made, you receive full ownership of your website, code, and assets."
+      },
+      "seo": {
+        "title": "SEO & Analytics",
+        "q1": "Will my site be optimized for search engines?",
+        "a1": "Yes. Every website includes on-page SEO best practices: clean structure, metadata, mobile optimization, performance tuning, and sitemaps.",
+        "q2": "Will my site load fast?",
+        "a2": "Yes. We optimize images, code, and caching for speed, aiming for excellent Core Web Vitals and sub-second perceived load times.",
+        "q3": "Do you add analytics?",
+        "a3": "Yes. We include Google Analytics setup (and can add other basic tracking if requested) so you can monitor visitors and conversions.",
+        "q4": "Can you migrate my old site and preserve SEO?",
+        "a4": "Yes. We can move existing content, set up redirects, and retain as much SEO value as possible."
+      },
+      "features": {
+        "title": "E-commerce & Features",
+        "q1": "Do you build e-commerce sites?",
+        "a1": "Yes. We can set up product catalogs, checkout, shipping, and payment integrations depending on your business needs.",
+        "q2": "Can you integrate bookings, payments, or tools I already use?",
+        "a2": "Yes. We regularly integrate booking systems, CRMs, payment gateways, newsletters, and other business tools.",
+        "q3": "Will I be able to update my site myself?",
+        "a3": "Yes. We can set up a content management system (CMS) so you can edit text, images, and blog posts without technical skills."
+      },
+      "support": {
+        "title": "Support, Hosting & Security",
+        "q1": "Do I need to buy hosting, a domain, or email?",
+        "a1": "No. Every package already includes 1 year of hosting, 1 year of domain registration, and 1 year of professional email. After the first year, you can renew with us or manage these on your own.",
+        "q2": "How secure will my website be?",
+        "a2": "Security best practices are built-in: HTTPS (SSL), regular updates, and basic hardening. We also configure automatic backups for peace of mind.",
+        "q3": "Do you offer support after launch?",
+        "a3": "Yes. We remain available for technical support, updates, or improvements. We can also help you extend hosting, email, and domain services after the first year."
+      },
+      "tech": {
+        "title": "Tech & Setup",
+        "q1": "What technology do you use?",
+        "a1": "We use modern, proven technologies like Next.js, React, TypeScript, TailwindCSS, and cloud hosting providers such as AWS or Vercel.",
+        "q2": "Is the website accessible?",
+        "a2": "We follow accessibility best practices (semantic HTML, alt text, contrast, mobile support) to make your website usable for everyone.",
+        "q3": "Do you work with clients in the US, Canada, and the UK?",
+        "a3": "Yes. We regularly work remotely with businesses across North America and the UK, handling communication, support, and billing seamlessly."
+      },
+      "contentBranding": {
+        "title": "Content & Branding",
+        "q1": "Who provides the content and images?",
+        "a1": "You can supply your own, or we can guide you on what’s needed. If you don’t have everything ready, we’ll help structure the content during the project.",
+        "q2": "Can you help with branding?",
+        "a2": "Yes. If you already have a logo and colors, we’ll build around them. If not, we can design a simple, professional identity for your website."
+      },
+      "legal": {
+        "title": "Legal & Policies",
+        "q1": "Do you add privacy and legal pages?",
+        "a1": "Yes. We provide basic Privacy, Terms of Service, and Cookie pages as part of every project. For full compliance (e.g., GDPR/CCPA), we recommend having your lawyer review them."
+      }
+    }
+  },
+  "Contact": {
+    "title": "Ready to Grow Your Business?",
+    "cta": "Let's build a website that gets you results. Fill out the form for a free, no-obligation proposal.",
+    "name": {
+      "label": "Name",
+      "placeholder": "Your Name"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "Your@email.com"
+    },
+    "website": {
+      "label": "Company Website (Optional)",
+      "placeholder": "https://www.yourcompany.com"
+    },
+    "content": {
+      "label": "Tell us about your project",
+      "placeholder": "What are your business goals? Who is your target audience? Any sites you like?"
+    },
+    "submit": "Send Information",
+    "submitting": "Sending...",
+    "submitTerms": "By submitting, you agree to be contacted about your inquiry."
+  },
+  "Footer": {
+    "brand": "Panielix Solutions",
+    "nav": {
+      "benefits": "Benefits",
+      "packages": "Packages",
+      "process": "Process",
+      "faq": "FAQ",
+      "contact": "Contact"
+    },
+    "links": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+    "copyright": "© {year} - All Rights Reserved"
+  },
+  "ConsentBanner": {
+    "desc": "We use cookies to improve your experience. By using our site, you agree to our ",
+    "privacy": "Privacy Policy",
+    "cta": "Accept"
+  }
+}

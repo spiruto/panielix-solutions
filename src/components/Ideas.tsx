@@ -1,79 +1,83 @@
+import { useTranslations } from "next-intl";
+
 export default function Ideas() {
+  const t = useTranslations('Ideas');
+
   const ideas = [
     {
       icon: "restaurant",
-      title: "Restaurants & Cafés",
-      desc: "Show your full menu online with photos and prices. Add a QR code on tables so customers can view instantly and call to order.",
+      title: t("items.restaurants.title"),
+      desc: t("items.restaurants.desc"),
     },
     {
       icon: "fitness_center",
-      title: "Gyms & Fitness Centers",
-      desc: "Highlight membership packages, schedules, and trainers. Add sign-up forms to convert visitors into paying members.",
+      title: t("items.gyms.title"),
+      desc: t("items.gyms.desc"),
     },
     {
       icon: "engineering",
-      title: "Construction & Contractors",
-      desc: "Showcase past projects, testimonials, and contact options. Build trust and attract clients for bigger jobs.",
+      title: t("items.construction.title"),
+      desc: t("items.construction.desc"),
     },
     {
       icon: "campaign",
-      title: "Marketing Agencies",
-      desc: "List services, packages, and case studies. A sharp site gives instant authority and helps close more deals.",
+      title: t("items.agencies.title"),
+      desc: t("items.agencies.desc"),
     },
     {
       icon: "shopping_bag",
-      title: "Shops & Boutiques",
-      desc: "Showcase products, brand story, and Google Maps location. Drive both online and in-person sales.",
+      title: t("items.shops.title"),
+      desc: t("items.shops.desc"),
     },
     {
       icon: "medical_services",
-      title: "Clinics & Health Professionals",
-      desc: "Share services, pricing, and contact info. Add booking forms so patients can easily schedule appointments.",
+      title: t("items.clinics.title"),
+      desc: t("items.clinics.desc"),
     },
     {
       icon: "celebration",
-      title: "Event Planners & Venues",
-      desc: "Promote packages, display past events, and use galleries. Make it easy for clients to book you fast.",
+      title: t("items.events.title"),
+      desc: t("items.events.desc"),
     },
     {
       icon: "school",
-      title: "Tutors & Coaches",
-      desc: "Showcase expertise, packages, and testimonials. Let students or parents schedule sessions online.",
+      title: t("items.tutors.title"),
+      desc: t("items.tutors.desc"),
     },
     {
       icon: "house",
-      title: "Real Estate Agents",
-      desc: "List available properties with photos, pricing, and contact options. Generate more qualified leads instantly.",
+      title: t("items.realEstate.title"),
+      desc: t("items.realEstate.desc"),
     },
     {
       icon: "spa",
-      title: "Spas & Beauty Salons",
-      desc: "Show treatments, prices, and before/after results. Add booking links to fill your calendar 24/7.",
+      title: t("items.spas.title"),
+      desc: t("items.spas.desc"),
     },
     {
       icon: "local_taxi",
-      title: "Transportation Services",
-      desc: "Promote airport transfers, limo services, or delivery. Customers can see prices and book directly online.",
+      title: t("items.transport.title"),
+      desc: t("items.transport.desc"),
     },
     {
       icon: "volunteer_activism",
-      title: "Nonprofits & Charities",
-      desc: "Share your mission, events, and donation options. A modern site builds trust and drives more support.",
+      title: t("items.nonprofits.title"),
+      desc: t("items.nonprofits.desc"),
     },
     {
       icon: "pets",
-      title: "Pet Services",
-      desc: "Promote grooming, walking, or boarding services. Add galleries and testimonials to attract more pet owners.",
+      title: t("items.pets.title"),
+      desc: t("items.pets.desc"),
     },
     {
       icon: "computer",
-      title: "IT & Tech Services",
-      desc: "Highlight your services, pricing, and success stories. Capture more B2B leads with professional credibility.",
+      title: t("items.it.title"),
+      desc: t("items.it.desc"),
     },
     {
       icon: "travel_explore",
-      title: "Travel & Tourism",
-      desc: "Show packages, destinations, and booking info. Inspire visitors to reach out and plan their next trip.",
+      title: t("items.travel.title"),
+      desc: t("items.travel.desc"),
     },
   ];
 
@@ -82,12 +86,10 @@ export default function Ideas() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Ideas to Inspire Your Website
+            {t("title")}
           </h2>
           <p className="mt-4 mx-auto max-w-2xl text-lg text-[var(--slate-400)]">
-            Not sure what type of website you need? Here are{" "}
-            <span className="text-white font-semibold">15 high-impact ideas </span>
-            that can turn visitors into paying customers across different industries.
+            {t("intro")}
           </p>
         </div>
 

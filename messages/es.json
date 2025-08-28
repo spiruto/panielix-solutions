@@ -1,1 +1,347 @@
-{}
+{
+  "Common": {
+    "brandName": "Panielix Solutions",
+    "metaTitle": "Panielix Solutions — Desarrollo Web y Marketing Digital",
+    "metaDescription": "Creamos sitios web rápidos y de alta conversión para pequeñas y medianas empresas.",
+
+    "cta": {
+      "getQuote": "Obtén Tu Cotización",
+      "startProject": "Comienza Mi Proyecto",
+      "exploreSolutions": "Explora Nuestras Soluciones",
+      "chatWithUs": "Chatea con Nosotros",
+      "getFreeProposal": "Obtén Tu Propuesta Gratis",
+      "startBuildingAsset": "Empieza a Construir Tu Activo",
+      "sendInformation": "Enviar Información"
+    },
+    "form": {
+      "name": "Nombre *",
+      "email": "Correo Electrónico *",
+      "websiteOptional": "Sitio Web de la Empresa (Opcional)",
+      "projectDetails": "Cuéntanos sobre tu proyecto *",
+      "agreeContact": "Al enviar, aceptas ser contactado sobre tu consulta.",
+      "submit": "Enviar Información"
+    }
+  },
+  "Opengraph":{
+    "brandName":"Panielix Solutions",
+    "desc":"Sitios web orientados a la conversión para pequeñas y medianas empresas."
+  },
+  "Nav": {
+    "home": "Inicio",
+    "benefits": "Beneficios",
+    "packages": "Paquetes",
+    "process": "Proceso",
+    "faq": "Preguntas Frecuentes",
+    "contact": "Contacto",
+    "getQuote": "Obtén Tu Cotización",
+    "menu": "menú"
+  },
+  "Hero": {
+    "title": "Tu sitio web debería hacerte dinero, no costarte dinero.",
+    "subtitle": "Creamos sitios web de alto valor y generación de leads para pequeñas y medianas empresas que buscan crecer. Deja de perder clientes y comienza a convertirlos.",
+    "badgeNoFees": "Sin tarifas ocultas ni contratos largos",
+    "badgeFast": "Entrega rápida garantizada",
+    "badgeLeads": "Optimizado para generar leads",
+    "ctaPrimary": "Comienza Mi Proyecto",
+    "ctaSecondary": "Explora Nuestras Soluciones"
+  },
+  "Benefits": {
+    "title": "Tu Sitio Web Es Tu Herramienta De Venta #1. La Haremos Ganadora.",
+    "intro": "Deja de conformarte con un sitio web que no rinde. Una presencia profesional en línea es crucial para atraer clientes, generar credibilidad y fomentar el crecimiento en el mundo digital actual.",
+    "cards": {
+      "attract": {
+        "title": "Atrae Más Clientes",
+        "body": "Nuestros sitios web optimizados para SEO están diseñados para posicionarse más alto en Google, trayendo más leads calificados directamente a ti."
+      },
+      "convert": {
+        "title": "Convierte Visitantes en Ventas",
+        "body": "Utilizamos principios de diseño probados para conversión que convierten visitantes de tu sitio web en clientes que pagan y aumentan tus ingresos."
+      },
+      "trust": {
+        "title": "Construye Confianza Sólida",
+        "body": "Un sitio web pulido y moderno establece tu autoridad y genera la credibilidad necesaria para conquistar a clientes exigentes."
+      }
+    }
+  },
+  "Solutions": {
+    "title": "Soluciones diseñadas para crecer",
+    "intro": "No vendemos paquetes; ofrecemos soluciones enfocadas en el valor. Encuentra la opción perfecta para alcanzar tus objetivos de negocio.",
+    "landing": {
+      "title": "Página de aterrizaje",
+      "desc": "Perfecta para validar una idea o generar conversiones para una campaña única y enfocada.",
+      "bullets": {
+        "b1": "Diseño de una sola página",
+        "b2": "Diseño enfocado en la conversión",
+        "b3": "Formulario de captura de clientes potenciales"
+      }
+    },
+    "business": {
+      "title": "Sitio web empresarial",
+      "desc": "Establece una fuerte presencia online y muestra tus servicios principales de manera efectiva.",
+      "bullets": {
+        "b1": "Hasta 5 páginas",
+        "b2": "Optimizado para SEO",
+        "b3": "Diseño móvil primero"
+      }
+    },
+    "content": {
+      "title": "Sitio web enfocado en contenido",
+      "desc": "Conviértete en autoridad en tu nicho y atrae tráfico orgánico con una plataforma centrada en contenido.",
+      "bullets": {
+        "b1": "Funcionalidad completa de blog",
+        "b2": "Sistema de gestión de contenido",
+        "b3": "Funciones avanzadas de SEO"
+      }
+    },
+    "custom": {
+      "title": "Construcción personalizada",
+      "desc": "Para proyectos únicos que requieren comercio electrónico, funciones personalizadas o integraciones específicas.",
+      "bullets": {
+        "b1": "Alcance y funciones personalizadas",
+        "b2": "E-commerce / integraciones de API",
+        "b3": "Soporte dedicado"
+      }
+    }
+  },
+  "Ideas": {
+    "title": "Ideas para inspirar tu sitio web",
+    "intro": "¿No estás seguro de qué tipo de sitio necesitas? Aquí tienes 15 ideas de alto impacto que pueden convertir visitantes en clientes que pagan en distintos sectores.",
+    "items": {
+      "restaurants": {
+        "title": "Restaurantes y cafés",
+        "desc": "Muestra tu menú completo en línea con fotos y precios. Añade un código QR en las mesas para que los clientes puedan verlo al instante y llamar para ordenar."
+      },
+      "gyms": {
+        "title": "Gimnasios y centros de fitness",
+        "desc": "Destaca paquetes de membresía, horarios y entrenadores. Añade formularios de inscripción para convertir visitantes en miembros."
+      },
+      "construction": {
+        "title": "Construcción y contratistas",
+        "desc": "Muestra proyectos anteriores, testimonios y opciones de contacto. Genera confianza y atrae clientes para proyectos más grandes."
+      },
+      "agencies": {
+        "title": "Agencias de marketing",
+        "desc": "Enumera servicios, paquetes y estudios de caso. Un sitio elegante da autoridad instantánea y ayuda a cerrar más tratos."
+      },
+      "shops": {
+        "title": "Tiendas y boutiques",
+        "desc": "Muestra productos, la historia de la marca y la ubicación en Google Maps. Aumenta ventas tanto en línea como presenciales."
+      },
+      "clinics": {
+        "title": "Clínicas y profesionales de la salud",
+        "desc": "Comparte servicios, precios e información de contacto. Añade formularios de reserva para que los pacientes puedan agendar fácilmente."
+      },
+      "events": {
+        "title": "Organizadores de eventos y salones",
+        "desc": "Promociona paquetes, muestra eventos anteriores y usa galerías. Facilita que los clientes hagan reservas rápidamente."
+      },
+      "tutors": {
+        "title": "Tutorías y coaching",
+        "desc": "Destaca experiencia, paquetes y testimonios. Permite que estudiantes o padres agenden sesiones en línea."
+      },
+      "realEstate": {
+        "title": "Agentes inmobiliarios",
+        "desc": "Lista propiedades disponibles con fotos, precios y opciones de contacto. Genera más leads calificados al instante."
+      },
+      "spas": {
+        "title": "Spas y salones de belleza",
+        "desc": "Promociona tratamientos, precios y resultados de antes/después. Añade enlaces de reserva para llenar tu agenda 24/7."
+      },
+      "transport": {
+        "title": "Servicios de transporte",
+        "desc": "Promociona traslados al aeropuerto, limusinas o servicio de delivery. Los clientes ven precios y reservan directamente en línea."
+      },
+      "nonprofits": {
+        "title": "ONG y organizaciones benéficas",
+        "desc": "Comparte tu misión, eventos y opciones de donación. Un sitio moderno genera confianza y más apoyo."
+      },
+      "pets": {
+        "title": "Servicios para mascotas",
+        "desc": "Promociona grooming, paseos o hospedaje. Añade galerías y testimonios para atraer a más dueños de mascotas."
+      },
+      "it": {
+        "title": "Servicios de TI y tecnología",
+        "desc": "Destaca tus servicios, precios e historias de éxito. Captura más leads B2B con credibilidad profesional."
+      },
+      "travel": {
+        "title": "Turismo y viajes",
+        "desc": "Muestra paquetes, destinos y datos de reserva. Inspira a los visitantes a contactarte y planear su próximo viaje."
+      }
+    }
+  },
+  "Work": {
+    "title": "Nuestro trabajo produce resultados tangibles",
+    "desc": "Entregamos sitios web impresionantes y de alto rendimiento que se traducen en un crecimiento real para tu negocio."
+  },
+  "Process": {
+    "title": "Nuestro proceso, enfocado en la eficiencia",
+    "intro": "Hemos optimizado nuestro proceso para entregar máximo valor y lanzar tu sitio web generador de ingresos, más rápido.",
+    "steps": {
+      "s1": {
+        "title": "Estrategia y cotización",
+        "body": "Definimos tus objetivos y proporcionamos una cotización clara basada en valor."
+      },
+      "s2": {
+        "title": "Desarrollo rápido",
+        "body": "Nuestro equipo construye tu sitio web rápido, centrado en la conversión, usando un flujo ágil y eficiente."
+      },
+      "s3": {
+        "title": "Revisión colaborativa",
+        "body": "Trabajamos contigo para perfeccionar el sitio y asegurarnos de que refleje tu visión a la perfección."
+      },
+      "s4": {
+        "title": "Lanzamiento y empoderamiento",
+        "body": "Desplegamos tu sitio y brindamos la capacitación y soporte que necesitas para empezar a generar leads de inmediato."
+      }
+    }
+  },
+  "MarketingPowerhouse": {
+    "title": "Más que un sitio web: una potencia de marketing",
+    "body": "Un gran sitio web es la base de tu marketing digital. Trabaja 24/7 para atraer, involucrar y convertir clientes, actuando como tu vendedor más eficiente. Construimos sitios que no solo son hermosos, sino que están diseñados para ser motores de marketing de alto rendimiento para tu negocio.",
+    "bullets": {
+      "leadGen": "Máquina de generación de leads: captura leads de alta calidad directamente mediante formularios optimizados y llamadas a la acción claras.",
+      "authority": "Mayor autoridad de marca: un sitio profesional genera confianza y te posiciona como líder en tu industria.",
+      "insights": "Datos para decisiones inteligentes: análisis integrados te permiten entender a tus clientes y tomar decisiones empresariales más informadas."
+    },
+    "cta": "Empieza a Construir Tu Activo"
+  },
+  "Testimonials": {
+    "title": "Resultados reales de negocios como el tuyo",
+    "desc": "Cómo es trabajar con {brandName} en palabras de nuestros propios clientes.",
+    "items": {
+      "northshore": {
+        "name": "Marcus Reid — Northshore Roofing (Vancouver, BC)",
+        "quote": "Pedí algo sencillo donde la gente pudiera ver fotos de trabajos anteriores y llamarme. Eso es exactamente lo que obtuve: sin adornos. Las llamadas aumentaron en dos semanas y la galería carga rápido incluso en el sitio."
+      },
+      "copperSpoon": {
+        "name": "Amelia Brooks — The Copper Spoon (Mánchester, Reino Unido)",
+        "quote": "Pusieron nuestro menú en línea con un QR para las mesas y añadieron clic-para-llamar. Ahora recibimos menos mensajes de “¿están abiertos?” y más reservas reales. Al personal le encanta no buscar el PDF más reciente."
+      },
+      "brightline": {
+        "name": "Dylan Carter — Brightline Fitness (Boston, MA)",
+        "quote": "Nuestro sitio anterior era básicamente un flyer. Ahora mostramos clases, membresías y fotos reales. La gente se inscribe para una prueba en línea, y mi teléfono dejó de estar en silencio los lunes."
+      }
+    }
+  },
+  "FAQ": {
+    "title": "Preguntas frecuentes",
+    "subtitle":"Respuestas claras y prácticas para ayudarte a entender cómo trabajamos.",
+    "groups": {
+      "pricing": {
+        "title": "Precios y pagos",
+        "q1": "¿Cuánto costará?",
+        "a1": "El precio depende del alcance. Las páginas de aterrizaje son las más asequibles, mientras que sitios empresariales multipágina y proyectos avanzados varían según los requisitos. Después de una llamada de descubrimiento breve, te daremos una cotización fija con entregables.",
+        "q2": "¿Cuál es su calendario de pagos?",
+        "a2": "Por lo general, 50 % por adelantado y 50 % al lanzamiento. Para builds más grandes podemos dividirlo en hitos. Aceptamos tarjetas de crédito principales y transferencias bancarias.",
+        "q3": "¿Qué está incluido en el precio?",
+        "a3": "Todos los paquetes incluyen diseño, desarrollo, diseño responsivo, optimización de rendimiento, configuración amigable para SEO, 1 año de hosting, 1 año de registro de dominio y 1 año de correo electrónico profesional.",
+        "q4": "¿Qué pasa si cancelo?",
+        "a4": "Mantienes la propiedad de todo el trabajo completado y pagado. Todos los activos o código finalizados se te entregarán en el punto de cancelación."
+      },
+      "timeline": {
+        "title": "Cronograma y proceso",
+        "q1": "¿Cuánto dura un proyecto típico?",
+        "a1": "La mayoría de las páginas de aterrizaje se lanzan en 2–3 semanas. Los sitios empresariales (multipágina) suelen tomar 4–6 semanas, dependiendo del alcance, preparación de contenido y retroalimentación. Los proyectos personalizados pueden tardar más.",
+        "q2": "¿Cuántas revisiones obtengo?",
+        "a2": "Incluimos rondas estructuradas de retroalimentación durante el diseño y pre-lanzamiento. Cambios pequeños son esperados; cambios significativos en el alcance pueden ajustar el costo o el cronograma, pero siempre lo confirmaremos contigo antes.",
+        "q3": "¿Pueden trabajar con plazos ajustados?",
+        "a3": "Sí. Si la capacidad lo permite, podemos priorizar proyectos urgentes y entregar cronogramas más rápidos.",
+        "q4": "¿Soy dueño del sitio una vez finalizado?",
+        "a4": "Sí. Una vez realizado el pago final, recibes plena propiedad del sitio web, código y activos."
+      },
+      "seo": {
+        "title": "SEO y analítica",
+        "q1": "¿Mi sitio estará optimizado para motores de búsqueda?",
+        "a1": "Sí. Cada sitio incluye buenas prácticas SEO on-page: estructura limpia, metadatos, optimización móvil, afinamiento de rendimiento y sitemaps.",
+        "q2": "¿Mi sitio cargará rápido?",
+        "a2": "Sí. Optimizamos imágenes, código y caching para velocidad, apuntando a excelentes Core Web Vitals y tiempos de carga percibidos menores a un segundo.",
+        "q3": "¿Agregan analítica?",
+        "a3": "Sí. Incluimos configuración de Google Analytics (y podemos añadir otro seguimiento básico si se solicita) para que puedas monitorear visitantes y conversiones.",
+        "q4": "¿Pueden migrar mi sitio anterior y preservar el SEO?",
+        "a4": "Sí. Podemos mover contenido existente, configurar redirecciones y preservar tanto valor SEO como sea posible."
+      },
+      "features": {
+        "title": "E-commerce y funciones",
+        "q1": "¿Construyen sitios de e-commerce?",
+        "a1": "Sí. Podemos configurar catálogos de productos, checkout, envíos e integraciones de pagos según tus necesidades.",
+        "q2": "¿Pueden integrar reservas, pagos u otras herramientas que ya uso?",
+        "a2": "Sí. Integramos sistemas de reservas, CRM, pasarelas de pago, newsletters y otras herramientas empresariales con regularidad.",
+        "q3": "¿Podré actualizar mi sitio yo mismo?",
+        "a3": "Sí. Podemos configurar un CMS para que puedas editar texto, imágenes y publicaciones de blog sin habilidades técnicas."
+      },
+      "support": {
+        "title": "Soporte, hosting y seguridad",
+        "q1": "¿Necesito comprar hosting, dominio o correo?",
+        "a1": "No. Cada paquete ya incluye 1 año de hosting, registro de dominio y correo electrónico profesional. Después del primer año, puedes renovar con nosotros o gestionarlo por tu cuenta.",
+        "q2": "¿Qué tan seguro será mi sitio?",
+        "a2": "Implementamos mejores prácticas de seguridad: HTTPS (SSL), actualizaciones regulares y hardening básico. También configuramos respaldos automáticos para mayor tranquilidad.",
+        "q3": "¿Ofrecen soporte después del lanzamiento?",
+        "a3": "Sí. Seguimos disponibles para soporte técnico, actualizaciones o mejoras. También podemos ayudarte a extender hosting, correo y dominio tras el primer año."
+      },
+      "tech": {
+        "title": "Tecnología y configuración",
+        "q1": "¿Qué tecnología utilizan?",
+        "a1": "Usamos tecnologías modernas y probadas como Next.js, React, TypeScript, TailwindCSS y proveedores de cloud como AWS o Vercel.",
+        "q2": "¿El sitio es accesible?",
+        "a2": "Seguimos buenas prácticas de accesibilidad (HTML semántico, texto alt, contraste, soporte móvil) para que tu sitio sea usable para todos.",
+        "q3": "¿Trabajan con clientes en EE.UU., Canadá y Reino Unido?",
+        "a3": "Sí. Trabajamos remotamente con empresas de Norteamérica y Reino Unido, gestionando comunicación, soporte y facturación sin problema."
+      },
+      "contentBranding": {
+        "title": "Contenido y branding",
+        "q1": "¿Quién proporciona contenido e imágenes?",
+        "a1": "Puedes suministrarlos tú, o podemos guiarte sobre lo que se necesita. Si no tienes todo listo, te ayudaremos a estructurar el contenido durante el proyecto.",
+        "q2": "¿Pueden ayudar con branding?",
+        "a2": "Sí. Si ya tienes logo y colores, construiremos alrededor de ellos. Si no, podemos diseñar una identidad simple y profesional para tu sitio."
+      },
+      "legal": {
+        "title": "Legal y políticas",
+        "q1": "¿Agregan páginas de privacidad y legales?",
+        "a1": "Sí. Proporcionamos páginas básicas de Privacidad, Términos de Servicio y Cookies en cada proyecto. Para cumplimiento completo (por ej., GDPR/CCPA), recomendamos que un abogado las revise."
+      }
+    }
+  },
+  "Contact": {
+    "title": "¿Listo para hacer crecer tu negocio?",
+    "cta": "Construyamos un sitio web que te dé resultados. Completa el formulario para una propuesta gratuita y sin compromiso.",
+    "name": {
+      "label": "Nombre Completo",
+      "placeholder": "Tu Nombre"
+    },
+    "email": {
+      "label": "Correo",
+      "placeholder": "tu@correo.com"
+    },
+    "website": {
+      "label": "Sitio Web (Opcional)",
+      "placeholder": "https://www.tusitioweb.com"
+    },
+    "content": {
+      "label": "Cuéntanos sobre tu proyecto",
+      "placeholder": "Cuáles son los objetivos de tu negocio? Cuál es tu audiencia? Qué sitios te gustan?"
+    },
+    "submit": "Enviar Información",
+    "submitting": "Enviando",
+    "submitTerms": "Al enviar, aceptas ser contactado acerca de tu consulta."
+  },
+  "Footer": {
+    "brand": "Panielix Solutions",
+    "nav": {
+      "benefits": "Beneficios",
+      "packages": "Paquetes",
+      "process": "Proceso",
+      "faq": "Preguntas Frecuentes",
+      "contact": "Contacto"
+    },
+    "links": {
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Servicio"
+    },
+    "copyright": "© {year} - Todos los derechos reservados"
+  },
+ "ConsentBanner": {
+  "desc": "Usamos cookies para mejorar tu experiencia. Al utilizar nuestro sitio, aceptas nuestra ",
+  "privacy": "Política de Privacidad",
+  "cta": "Aceptar"
+}
+}
